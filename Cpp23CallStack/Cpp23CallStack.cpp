@@ -6,22 +6,27 @@
 
 using namespace std;
 
-int inner(const int n) {
-	if (n < 0) {
+int inner(const int n) 
+{
+	if (n < 0) 
+	{
 		throw Cpp23ExceptionWithCallstack{"Error"};
 	}
 	return n * n;
 }
 
-int outer(const int n) {
+int outer(const int n) 
+{
 	return inner(n);
 }
 
 int main() {
-	try {
+	try 
+	{
 		cout << outer(-5) << "\n";
 	}
-	catch (const Cpp23ExceptionWithCallstack& except) {
+	catch (const Cpp23ExceptionWithCallstack& except) 
+	{
 		cout << except.GetCallstack() << std::endl;
 	}
 }
