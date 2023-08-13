@@ -38,7 +38,7 @@ int main()
 }
 ```
 
-The call stack output is as follows. Make sure to put the executable’s pdb file in the same folder to get function names in the output.
+The call stack output is as follows. Make sure to put the executable’s pdb file in the same folder to get function names, filenames and line numbers in the output.
 
 ```
 Cpp23CallStack!inner+0x3A, D:\GitHub\cpp_show_callstack\Cpp23CallStack\Cpp23CallStack.cpp(11)
@@ -92,7 +92,7 @@ int main()
 }
 ```
 
-This is the call stack output. Do note that, as mentioned above, you must put the executable’s pdb file in the program’s folder to get the function names in the output.
+This is the call stack output. Do note that, as mentioned above, you must put the executable’s pdb file in the program’s folder to get the function names, filenames and line numbers in the output.
 
 ```
 D:\GitHub\cpp_show_callstack\WinCallStack\StackWalker.cpp (1140): StackWalker::ShowCallstack
