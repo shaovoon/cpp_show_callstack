@@ -1,3 +1,9 @@
+# Two C++ Exception Classes with Callstack
+
+I developed two C++ exception classes that could tremendously help troubleshoot customer problems not reproducible on the developer's system and a common function is called and you do not know its caller because they are numerous. The customer must be given an executable and a pdb built with that executable to get the correct call stack. A pdb file contains the debug symbols. You cannot give a pdb built later from the same code. When we build the executable, every function is given an address offset. The pdb is based on those offsets. When the binary is built again, the offsets change. In short, the pdb's function offsets have to match the executable.
+
+The first class is based on cross-platform C++23 while the second one is based on C++03 and Windows API, therefore is for the Windows platform only.
+
 ## C++23 Exception Class with Callstack
 
 C++23 Standard ratified this year has introduced a `stacktrace` class that retrieves the call stack trace. The `stacktrace` can aid in troubleshooting during exceptions. Therefore I derived `Cpp23ExceptionWithCallstack` from `std::runtime_error` and added `stacktrace` as a member to get the trace information. My `stacktrace` usage heavily relies on Stephan T. Lavavej’s [Godbolt example](https://godbolt.org/z/MWfxKj43a).
