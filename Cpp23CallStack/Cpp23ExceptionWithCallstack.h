@@ -12,6 +12,9 @@
 #include <stdexcept>
 #include <string>
 #include <string_view>
+#if defined(_MSC_VER) && defined(_DEBUG)
+    #include <Windows.h>
+#endif
 
 struct Cpp23ExceptionWithCallstack : std::runtime_error {
     Cpp23ExceptionWithCallstack(const char* msg) :
@@ -22,16 +25,21 @@ struct Cpp23ExceptionWithCallstack : std::runtime_error {
     std::string GetCallstack() const
     {
         using namespace std; // without using std ns, the sv literal fails to compile. Strange.
+		std::string temp;
         std::string result;
         for (const std::stacktrace_entry& entry : m_stacktrace) {
             const std::string file = entry.source_file();
             const std::string_view sview = file.empty() ? "unknown"sv : file;
-            result += entry.description();
-            result += ", ";
-            result += sview;
-            result += "(";
-            result += std::to_string(entry.source_line());
-            result += ")\n";
+            temp = sview;
+            temp += " (";
+            temp += std::to_string(entry.source_line());
+            temp += "): ";
+            temp += entry.description();
+            temp += "\n";
+            result += temp;
+#if defined(_MSC_VER) && defined(_DEBUG)
+            ::OutputDebugStringA(temp.c_str());
+#endif
         }
         return result;
     }
