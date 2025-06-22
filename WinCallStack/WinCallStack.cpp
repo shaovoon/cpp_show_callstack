@@ -1,5 +1,5 @@
 #include <iostream>
-#include "CppExceptionWithCallstack.h"
+#include "CppException.h"
 
 using namespace std;
 
@@ -7,7 +7,7 @@ int inner(const int n)
 {
 	if (n < 0) 
 	{
-		throw CppExceptionWithCallstack{"Error"};
+		throw CppException{"Error"};
 	}
 	return n * n;
 }
@@ -23,7 +23,7 @@ int main()
 	{
 		cout << outer(-5) << "\n";
 	}
-	catch (const CppExceptionWithCallstack& except) 
+	catch (const CppException& except) 
 	{
 		cout << except.GetCallstack() << std::endl;
 	}

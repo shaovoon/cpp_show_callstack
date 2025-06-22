@@ -131,7 +131,7 @@
     <ClCompile Include="WinCallStack.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CppExceptionWithCallstack.h" />
+    <ClInclude Include="CppException.h" />
     <ClInclude Include="StackWalker.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

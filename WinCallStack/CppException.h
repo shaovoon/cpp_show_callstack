@@ -11,8 +11,8 @@
 #include <string>
 #include "StackWalker.h"
 
-struct CppExceptionWithCallstack : std::runtime_error {
-    CppExceptionWithCallstack(const char* msg) :
+struct CppException : std::runtime_error {
+    CppException(const char* msg) :
         runtime_error{ msg },
         sw{} 
     {

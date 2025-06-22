@@ -16,8 +16,8 @@
     #include <Windows.h>
 #endif
 
-struct Cpp23ExceptionWithCallstack : std::runtime_error {
-    Cpp23ExceptionWithCallstack(const char* msg) :
+struct Cpp23Exception : std::runtime_error {
+    Cpp23Exception(const char* msg) :
         runtime_error{ msg },
         m_stacktrace{ std::stacktrace::current(1 /*skipped frames*/) } {}
     std::stacktrace m_stacktrace;

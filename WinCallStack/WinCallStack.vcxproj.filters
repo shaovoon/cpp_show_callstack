@@ -23,7 +23,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CppExceptionWithCallstack.h">
+    <ClInclude Include="CppException.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="StackWalker.h">

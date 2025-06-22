@@ -134,7 +134,7 @@
     <ClCompile Include="Cpp23CallStack.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Cpp23ExceptionWithCallstack.h" />
+    <ClInclude Include="Cpp23Exception.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
